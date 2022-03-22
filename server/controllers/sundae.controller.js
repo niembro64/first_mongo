@@ -27,3 +27,8 @@ module.exports.findOne = (req, res) => {
     .then((results) => res.json(results))
     .catch((err) => res.status(400).json({ message: "that didn't work", err }));
 };
+module.exports.deleteOne = (req, res) => {
+  Sundae.deleteOne({ _id: req.params._id })
+    .then((results) => res.json(results))
+    .catch((err) => res.status(400).json({ message: "that didn't work", err }));
+};

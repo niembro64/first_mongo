@@ -7,4 +7,5 @@ module.exports = (app) => {
   app.get("/api/sundaes/findAll", SundaeController.findAll)
   app.post("/api/sundaes/create", SundaeController.createSundae);
   app.get("/api/sundaes/:_id", SundaeController.findOne);
+  app.delete("/api/sundaes/:_id", SundaeController.deleteOne)
 };
