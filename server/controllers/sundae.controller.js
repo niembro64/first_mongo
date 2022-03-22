@@ -16,8 +16,14 @@ module.exports.findAll = (req, res) => {
 
 module.exports.createSundae = (req, res) => {
   Sundae.create(req.body)
-    .then(newSundae => res.json(newSundae))
+    .then((newSundae) => res.json(newSundae))
     .catch((err) =>
       res.status(400).json({ message: "create didn't work", err })
     );
+};
+
+module.exports.findOne = (req, res) => {
+  Sundae.findOne({ _id: req.params._id })
+    .then((results) => res.json(results))
+    .catch((err) => res.status(400).json({ message: "that didn't work", err }));
 };
