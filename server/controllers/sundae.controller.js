@@ -1,3 +1,4 @@
+const req = require("express/lib/request");
 const Sundae = require("../models/sundae.model");
 // const Sundae = require("models/sundae.model");
 
@@ -32,3 +33,16 @@ module.exports.deleteOne = (req, res) => {
     .then((results) => res.json(results))
     .catch((err) => res.status(400).json({ message: "that didn't work", err }));
 };
+
+module.exports.updateOne = (req, res) => {
+  Sundae.updateOne({ _id: req.params._id }, req.body)
+    .then((results) => res.json(results))
+    .catch((err) => res.status(400).json({ message: "that didn't work", err }));
+};
+
+module.exports.addTopping = (req,res) => {
+  Sundae.updateOne({_id: req.params._id},
+    {$push: {toppings: req.body.topping}})
+    .then((results) => res.json(results))
+    .catch((err) => res.status(400).json({ message: "that didn't work", err }));
+}
