@@ -13,3 +13,11 @@ module.exports.findAll = (req, res) => {
     .then((results) => res.json(results))
     .catch((err) => res.status(400).json({ message: "that didn't work", err }));
 };
+
+module.exports.createSundae = (req, res) => {
+  Sundae.create(req.body)
+    .then(newSundae => res.json(newSundae))
+    .catch((err) =>
+      res.status(400).json({ message: "create didn't work", err })
+    );
+};

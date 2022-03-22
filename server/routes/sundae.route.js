@@ -5,4 +5,6 @@ module.exports = (app) => {
   app.get("/api", SundaeController.eric);
   app.get("/api/test", SundaeController.testResponse);
   app.get("/api/findAll", SundaeController.findAll)
+  app.post("/api/create", SundaeController.createSundae);
+  
 };
